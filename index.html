@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fruit List</title>
+</head>
+<body>
+  <h2>Fruit List</h2>
+  <ul id="fruit_list"></ul>
+
+  <input type="text" id="fruitInput" placeholder="Enter a fruit" />
+  <button onclick="addFruit()">Add Fruit</button>
+
+  <script>
+    // Use port 5000 here 👇
+    const GET_LIST_URL = "http://127.0.0.1:5000/getlist";
+    const POST_LIST_URL = "http://127.0.0.1:5000/postlist";
+
+    // Load fruits from backend and display in HTML
+    async function loadFruits() {
+      const res = await fetch("http://127.0.0.1:5000/getlist");
+      const data = await res.json();
+
+      const list = document.getElementById("fruit_list");
+      list.innerHTML = ""; // Clear existing list
+
+      for (const id in data) {
+        const li = document.createElement("li");
+        li.textContent = `${id}: ${data[id]}`;
+        list.appendChild(li);
+      }
+    }
+
+    // Add new fruit using POST request
+    async function addFruit() {
+      const input = document.getElementById("fruitInput");
+      const value = input.value.trim();
+
+      if (!value) {
+        alert("Please enter a fruit");
+        return;
+      }
+
+      await fetch(POST_LIST_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ item: value })
+      });
+
+      input.value = ""; // Clear input box
+      loadFruits();     // Refresh the fruit list
+    }
+
+    // Load fruits on page load
+    loadFruits();
+  </script>
+</body>
+</html>
