@@ -1,0 +1,66 @@
+/* Fruit-themed gradient background */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(135deg, #ffecb3 0%, #ffe0e0 40%, #e0ffe0 70%, #e0f7fa 100%);
+  min-height: 100vh;
+}
+
+h2 {
+  text-align: center;
+  color: #d84315; /* Papaya/Orange */
+  margin-top: 30px;
+}
+
+#fruit_list {
+  max-width: 400px;
+  margin: 30px auto 20px auto;
+  padding: 0;
+  list-style: none;
+}
+
+#fruit_list li {
+  background: linear-gradient(90deg, #ffe082 0%, #ffccbc 100%);
+  color: #4e342e;
+  margin: 8px 0;
+  padding: 12px 20px;
+  border-radius: 25px;
+  font-size: 1.1em;
+  box-shadow: 0 2px 8px rgba(255, 183, 77, 0.15);
+  transition: transform 0.1s;
+}
+#fruit_list li:hover {
+  transform: scale(1.04);
+  background: linear-gradient(90deg, #c8e6c9 0%, #ffe082 100%);
+}
+
+input[type="text"] {
+  display: block;
+  margin: 0 auto 15px auto;
+  padding: 10px 15px;
+  border: 2px solid #ffb74d;
+  border-radius: 20px;
+  font-size: 1em;
+  outline: none;
+  transition: border 0.2s;
+}
+input[type="text"]:focus {
+  border: 2px solid #43a047;
+}
+
+button {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 30px;
+  background: linear-gradient(90deg, #ffb74d 0%, #81c784 100%);
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  font-size: 1em;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(255, 183, 77, 0.15);
+  transition: background 0.2s;
+}
+button:hover {
+  background: linear-gradient(90deg, #81c784 0%, #ffb74d 100%);
+}
