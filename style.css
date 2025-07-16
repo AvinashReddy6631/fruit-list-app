@@ -64,3 +64,24 @@ button {
 button:hover {
   background: linear-gradient(90deg, #81c784 0%, #ffb74d 100%);
 }
+
+/* 3D Fruit Effects */
+.fruit-3d {
+  perspective: 400px;
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+  will-change: transform, opacity;
+  user-select: none;
+}
+
+.fruit-emoji {
+  font-size: 1.4em;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.fruit-name {
+  vertical-align: middle;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
